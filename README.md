@@ -1,6 +1,8 @@
 # vue-crash-2021
 
-This is a Todo list app
+This is a Todo list app, example of what you can do with Vuejs3 as a starter.
+
+The hole app is from Traversy
 
 ## Project setup
 ```
