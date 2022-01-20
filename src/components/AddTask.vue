@@ -57,7 +57,7 @@ export default {
                         this.$emit("add-task", newTask);
                         this.text = "";
                         this.day = "";
-                        this.reminder = "";
+                        this.reminder = false;
                 },
         },
 };
