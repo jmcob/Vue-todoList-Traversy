@@ -1,5 +1,7 @@
 # vue-crash-2021
 
+This is a Todo list app
+
 ## Project setup
 ```
 npm install
