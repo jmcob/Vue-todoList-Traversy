@@ -41,7 +41,7 @@ export default {
                 async addTask(newTask) {
                         let task = JSON.stringify(newTask);
                         const res = await fetch(
-                                "http://taskback.vercel.app/api/tasks",
+                                "https://taskback.vercel.app/api/tasks",
                                 {
                                         method: "POST",
                                         headers: {
@@ -56,7 +56,7 @@ export default {
                 },
                 async deleteTask(id) {
                         const res = await fetch(
-                                `http://taskback.vercel.app/api/tasks/${id}`,
+                                `https://taskback.vercel.app/api/tasks/${id}`,
                                 {
                                         method: "DELETE",
                                 }
@@ -75,7 +75,7 @@ export default {
                                 reminder: !taskToToggle.reminder,
                         };
                         const res = await fetch(
-                                `http://taskback.vercel.app/api/tasks/${id}`,
+                                `https://taskback.vercel.app/api/tasks/${id}`,
                                 {
                                         method: "PUT",
                                         headers: {
@@ -94,14 +94,14 @@ export default {
                 },
                 async fetchTasks() {
                         const res = await fetch(
-                                "http://taskback.vercel.app/api/tasks"
+                                "https://taskback.vercel.app/api/tasks"
                         );
                         const data = await res.json();
                         return data;
                 },
                 async fetchTask(id) {
                         const res = await fetch(
-                                `http://taskback.vercel.app/api/tasks/${id}`
+                                `https://taskback.vercel.app/api/tasks/${id}`
                         );
                         const data = await res.json();
                         return data;
