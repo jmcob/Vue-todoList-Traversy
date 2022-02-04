@@ -2,7 +2,9 @@
 
 This is a Todo list app, example of what you can do with Vuejs3 as a starter.
 
-The hole app is from Traversy
+The entire app is from Traversy except some minor changes.
+
+You can see the app in action on : https://vue-crash-2021-traversy-2.vercel.app/
 
 ## Project setup
 ```
