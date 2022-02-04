@@ -41,7 +41,7 @@ export default {
                 async addTask(newTask) {
                         let task = JSON.stringify(newTask);
                         const res = await fetch(
-                                "https://taskback.vercel.app/api/tasks",
+                                process.env.VUE_APP_API_URL + "/api/tasks/",
                                 {
                                         method: "POST",
                                         headers: {
@@ -56,7 +56,8 @@ export default {
                 },
                 async deleteTask(id) {
                         const res = await fetch(
-                                `https://taskback.vercel.app/api/tasks/${id}`,
+                                process.env.VUE_APP_API_URL +
+                                        `/api/tasks/${id}`,
                                 {
                                         method: "DELETE",
                                 }
@@ -64,7 +65,7 @@ export default {
 
                         res.status === 200
                                 ? (this.tasks = this.tasks.filter(
-                                          (task) => task.id !== id
+                                          (task) => task._id !== id
                                   ))
                                 : alert("Error deleting task");
                 },
@@ -75,7 +76,8 @@ export default {
                                 reminder: !taskToToggle.reminder,
                         };
                         const res = await fetch(
-                                `https://taskback.vercel.app/api/tasks/${id}`,
+                                process.env.VUE_APP_API_URL +
+                                        `/api/tasks/${id}`,
                                 {
                                         method: "PUT",
                                         headers: {
@@ -87,21 +89,21 @@ export default {
                         );
                         const data = await res.json();
                         this.tasks = this.tasks.map((task) =>
-                                task.id === id
+                                task._id === data._id
                                         ? { ...task, reminder: data.reminder }
                                         : task
                         );
                 },
                 async fetchTasks() {
                         const res = await fetch(
-                                "https://taskback.vercel.app/api/tasks"
+                                process.env.VUE_APP_API_URL + "/api/tasks"
                         );
                         const data = await res.json();
                         return data;
                 },
                 async fetchTask(id) {
                         const res = await fetch(
-                                `https://taskback.vercel.app/api/tasks/${id}`
+                                process.env.VUE_APP_API_URL + `/api/tasks/${id}`
                         );
                         const data = await res.json();
                         return data;
