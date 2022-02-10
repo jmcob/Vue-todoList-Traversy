@@ -1,4 +1,4 @@
 <template>
-        <h2>Version 1.0.0</h2>
-        <router-link to="/">Go back</router-link>
+        <h2>Version 1.0.0 backend edition</h2>
+        <router-link to="/">Go Home</router-link>
 </template>
