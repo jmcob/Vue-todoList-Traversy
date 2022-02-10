@@ -3,12 +3,12 @@
                 <h2>{{ title }}</h2>
                 <CustomLoginInput
                         class="input"
-                        type="email"
+                        v-model="email"
                         :label="emailLabel"
                 />
                 <CustomLoginInput
                         class="input"
-                        type="password"
+                        v-model="password"
                         :label="passwordLabel"
                 />
                 <button>Log in</button>
@@ -27,11 +27,31 @@ export default {
                         password: "",
                         emailLabel: "Email",
                         passwordLabel: "Password",
+                        user: [],
                 };
         },
         methods: {
-                handleSubmit() {
-                        console.log(this.email, this.password);
+                async handleSubmit() {
+                        let creditentials = {
+                                email: this.email,
+                                password: this.password,
+                        };
+                        let creditentialsJSON = JSON.stringify(creditentials);
+                        console.log(creditentialsJSON);
+                        const res = await fetch(
+                                process.env.VUE_APP_API_URL +
+                                        "/api/users/login",
+                                {
+                                        method: "POST",
+                                        headers: {
+                                                "Content-type":
+                                                        "application/json",
+                                        },
+                                        body: creditentialsJSON,
+                                }
+                        );
+                        const data = await res.json();
+                        this.user = [...this.user, data];
                 },
         },
 };
