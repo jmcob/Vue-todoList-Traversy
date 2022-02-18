@@ -41,6 +41,7 @@ export default {
                         reminder: false,
                 };
         },
+        emits: ["add-task"],
         methods: {
                 onSubmit(e) {
                         e.preventDefault();
